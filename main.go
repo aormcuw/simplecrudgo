@@ -3,6 +3,7 @@ package main
 // CompileDaemon -command="./simplecrudgo"
 // postgresql://postgres:LTNvjuIsFHtuiQHjLHWFHYMoGicRalBM@autorack.proxy.rlwy.net:54592/railway
 import (
+	"simplecrudgo/controllers"
 	"simplecrudgo/initializers"
 
 	"github.com/gin-gonic/gin"
@@ -15,10 +16,6 @@ func init() {
 
 func main() {
 	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	r.POST("/posts", controllers.PostCreate)
 	r.Run()
 }
