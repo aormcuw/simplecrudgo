@@ -17,5 +17,7 @@ func init() {
 func main() {
 	r := gin.Default()
 	r.POST("/posts", controllers.PostCreate)
+	r.GET("/posts", controllers.PostsIndex)
+	r.GET("/posts/:id", controllers.PostShow)
 	r.Run()
 }
